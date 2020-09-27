@@ -1,0 +1,136 @@
+﻿@model TeachersrRecordsManagementSystem.Models.ViewModel.TeachersViewModel
+
+@{
+    ViewData["Title"] = "AddTeachers";
+    Layout = "~/Views/Shared/_FormsLayout.cshtml";
+    ViewData["Value"] = 3;
+    ViewData["ColumnName"] = "Teachers";
+    ViewData["SubOperationName"] = "Add teachers";
+}
+
+
+
+<div class="row">
+    <div class="col-md-10">
+        <form  asp-action="AddTeachers" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ImageName" class="control-label"></label>
+                <input asp-for="TeacherImage" type="file" class="form-control" />
+                <span asp-validation-for="ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TitleId" class="control-label"></label>
+
+                <select asp-for="TitleId" asp-items="Model?.TitleList" class="form-control">
+                    <option>Select title</option>
+                </select>
+                <span asp-validation-for="TitleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Othernames" class="control-label"></label>
+                <input asp-for="Othernames" class="form-control" />
+                <span asp-validation-for="Othernames" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BirthDate" class="control-label"></label>
+                <input asp-for="BirthDate" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GenderId" class="control-label"></label>
+                <select asp-for="GenderId" asp-items="Model?.GenderList" class="form-control">
+                    <option>Select gender</option>
+                </select>
+                <span asp-validation-for="GenderId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hometown" class="control-label"></label>
+                <input asp-for="Hometown" class="form-control" />
+                <span asp-validation-for="Hometown" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contact" class="control-label"></label>
+                <input asp-for="Contact" class="form-control" />
+                <span asp-validation-for="Contact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaritalId" class="control-label"></label>
+                <select asp-for="MaritalId" asp-items="Model?.MaritalList" class="form-control">
+                    <option>Select marital status</option>
+                </select>
+                <span asp-validation-for="MaritalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AcademicQualification" class="control-label"></label>
+                <input asp-for="AcademicQualification" class="form-control" />
+                <span asp-validation-for="AcademicQualification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfessionalQualification" class="control-label"></label>
+                <input asp-for="ProfessionalQualification" class="form-control" />
+                <span asp-validation-for="ProfessionalQualification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StaffId" class="control-label"></label>
+                <input asp-for="StaffId" class="form-control" />
+                <span asp-validation-for="StaffId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisteredNumber" class="control-label"></label>
+                <input asp-for="RegisteredNumber" class="form-control" />
+                <span asp-validation-for="RegisteredNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ssfno" class="control-label"></label>
+                <input asp-for="Ssfno" class="form-control" />
+                <span asp-validation-for="Ssfno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BankId" class="control-label"></label>
+                <select asp-for="BankId" asp-items="Model?.BankList" class="form-control">
+                    <option>Select Bank</option>
+                </select>
+                <span asp-validation-for="BankId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AccountName" class="control-label"></label>
+                <input asp-for="AccountName" class="form-control" />
+                <span asp-validation-for="AccountName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstAppointmentDate" class="control-label"></label>
+                <input asp-for="FirstAppointmentDate" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+                <span asp-validation-for="FirstAppointmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StateId" class="control-label"></label>
+                <select asp-for="StateId" asp-items="Model?.StateList" class="form-control">
+                    <option>Select type of state</option>
+                </select>
+                <span asp-validation-for="StateId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-dot-circle-o"> Submit</i></button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+
+}
+

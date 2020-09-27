@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TeachersrRecordsManagementSystem.Models.ViewModel.TeachersViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_FormsLayout.cshtml";
+    ViewData["Value"] = 2;
+    ViewData["ColumnName"] = "Manage Teachers";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.GenderId)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Contact)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.StateId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @if (item.ImageName == null)
+                    {
+                        <img src="~/images/defaultUserPic.jpg" width="40" height="40" class="rounded-circle" alt="teacher pic" asp-append-version="true" />
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    }
+                    else
+                    {
+                        <img src="~/userImages/@item.ImageName" width="40" height="40" class="rounded-circle" alt="teacher pic" asp-append-version="true" />
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    }
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenderName)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StateName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TeacherId" class="btn btn-warning btn-sm"><i class="fa fa-edit"> Edit</i></a> &nbsp;
+                    <a asp-action="Teacherdetails" asp-route-id="@item.TeacherId" class="btn btn-success btn-sm"><i class="fa fa-user"> Details</i></a> 
+                    @*<a asp-action="Delete" asp-route-id="@item.TeacherId">Delete</a>*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TeachersrRecordsManagementSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="~/lib/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="~/lib/vendors/selectFX/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="~/lib/vendors/jqvmap/dist/jqvmap.min.css">
+
+
+    <link rel="stylesheet" href="~/lib/assets/css/style.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="bg-dark" style="background-image:url('@Url.Content("~/images/home-banner.jpg")');">
+
+    <div class="sufee-login d-flex align-content-center flex-wrap">
+        <div class="container">
+            <div class="login-content">
+                <div class="login-logo">
+                    <h3 style="color:black">Teacher Records Management System </h3>
+                    <hr color="red" />
+                </div>
+                <div class="login-form">
+                    <div>
+                        <main role="main" class="pb-3">
+                            @RenderBody()
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/lib/assets/js/main.js"></script>
+    <script src="~/lib/vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="~/lib/assets/js/dashboard.js"></script>
+    <script src="~/lib/assets/js/widgets.js"></script>
+    <script src="~/lib/vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="~/lib/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="~/lib/vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

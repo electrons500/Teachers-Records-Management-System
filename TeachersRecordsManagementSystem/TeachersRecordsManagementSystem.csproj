@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\vendors\bootstrap\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\lib\vendors\bootstrap\.github\ISSUE_TEMPLATE\bug.md" />
+    <None Include="wwwroot\lib\vendors\bootstrap\.github\ISSUE_TEMPLATE\bug_report.md" />
+    <None Include="wwwroot\lib\vendors\bootstrap\.github\ISSUE_TEMPLATE\feature.md" />
+    <None Include="wwwroot\lib\vendors\bootstrap\.github\ISSUE_TEMPLATE\feature_request.md" />
+    <None Include="wwwroot\lib\vendors\bootstrap\.github\SUPPORT.md" />
+    <None Include="wwwroot\lib\vendors\jquery-validation-unobtrusive\.vsts-pipelines\builds\ci-public.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MicroSoft.EntityFrameWorkCore.Design" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MicroSoft.EntityFrameWorkCore.SqlServer" Version="3.1.8" />
+    <PackageReference Include="MicroSoft.EntityFrameWorkCore.Tools" Version="3.1.8">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\userImages\" />
+  </ItemGroup>
+
+</Project>

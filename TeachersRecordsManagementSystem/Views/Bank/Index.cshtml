@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TeachersrRecordsManagementSystem.Models.ViewModel.BankViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_FormsLayout.cshtml";
+    ViewData["Value"] = 2;
+    ViewData["ColumnName"] = "Manage banks";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                S/No
+            </th>
+            <th>
+               Bank name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BankId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BankName)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.BankId" class="btn btn-success"><i class="fa fa-edit"> Edit</i></a>  
+                    
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
