@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -13,6 +14,7 @@ namespace TeachersrRecordsManagementSystem.Controllers
     public class BankController : Controller
     {
         private BankService _BankService;
+        int UserNumber;
         public BankController( BankService bankService)
         {
             _BankService = bankService;
@@ -22,7 +24,7 @@ namespace TeachersrRecordsManagementSystem.Controllers
         // GET: BankController
         public ActionResult Index()
         {
-            if (HttpContext.Session.GetString("UserID") != null)
+            if (HttpContext.Session.GetString("UserID") != null || ReadFromFile() != 0)
             {
                 var model = _BankService.GetBanks();
                 return View(model);
@@ -47,7 +49,7 @@ namespace TeachersrRecordsManagementSystem.Controllers
         // GET: BankController/Create
         public ActionResult Addbanks()
         {
-            if (HttpContext.Session.GetString("UserID") != null)
+            if (HttpContext.Session.GetString("UserID") != null || ReadFromFile() != 0)
             {
                
                 return View();
@@ -67,7 +69,7 @@ namespace TeachersrRecordsManagementSystem.Controllers
         {
             try
             {
-                if (HttpContext.Session.GetString("UserID") != null)
+                if (HttpContext.Session.GetString("UserID") != null || ReadFromFile() != 0)
                 {
                     bool result = _BankService.AddBanks(model);
                     if (result)
@@ -93,7 +95,7 @@ namespace TeachersrRecordsManagementSystem.Controllers
         // GET: BankController/Edit/5
         public ActionResult Edit(int id)
         {
-            if (HttpContext.Session.GetString("UserID") != null)
+            if (HttpContext.Session.GetString("UserID") != null || ReadFromFile() != 0)
             {
                 var model = _BankService.GetBankDetails(id);
                 return View(model);
@@ -112,7 +114,7 @@ namespace TeachersrRecordsManagementSystem.Controllers
         {
             try
             {
-                if (HttpContext.Session.GetString("UserID") != null)
+                if (HttpContext.Session.GetString("UserID") != null || ReadFromFile() != 0)
                 {
                     bool result = _BankService.UpdateBanks(model);
                     if (result)
@@ -132,7 +134,19 @@ namespace TeachersrRecordsManagementSystem.Controllers
                 return View();
             }
         }
-       
+
+
+
+        public int ReadFromFile()
+        {
+            var filepath = Path.Combine(Directory.GetCurrentDirectory() + "\\errormessage.txt");
+            StreamReader sr = new StreamReader(filepath);
+            UserNumber = Convert.ToInt32(sr.ReadLine());
+            sr.Close();
+
+            return UserNumber;
+        }
+
 
     }
 }

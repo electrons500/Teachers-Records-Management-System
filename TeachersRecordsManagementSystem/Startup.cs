@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TeachersRecordsManagementSystem.Models;
 using TeachersrRecordsManagementSystem.Models.Data.TrmsContext;
 using TeachersrRecordsManagementSystem.Models.Service;
 
@@ -46,6 +47,7 @@ namespace TeachersrRecordsManagementSystem
             services.AddScoped<StateService>();
             services.AddScoped<TitleService>();
             services.AddScoped<TeachersService>();
+            services.AddScoped<CheckIfSessionExist>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
